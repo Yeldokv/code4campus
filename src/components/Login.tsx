@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, User, Lock, LogIn } from 'lucide-react';
-import aboutImg from '../assets/about.webp'; // <-- Import image
+import aboutImg from '../assets/89613722-9362-4113-964e-ac1042734a22.jpeg'; // <-- Import image
 
 interface LoginProps {
   onLogin: (studentId: string, password: string) => boolean;

@@ -18,7 +18,7 @@ const tabs = [
   { id: 'library' as TabType, label: 'Library Books', icon: '📚' },
   { id: 'canteen' as TabType, label: 'Canteen Menu', icon: '🍽️' },
   { id: 'concerns' as TabType, label: 'Concerns', icon: '💭' },
-  { id: 'eventdiscussion' as TabType, label: 'Event Discussion', icon: '💬' },
+  { id: 'eventdiscussion' as TabType, label: 'Discussion', icon: '💬' },
   { id: 'complaints' as TabType, label: 'Complaints', icon: '📝' },
   { id: 'calendar' as TabType, label: 'Academic Calendar', icon: '📅' },
   { id: 'transport' as TabType, label: 'Transport', icon: '🚌' },

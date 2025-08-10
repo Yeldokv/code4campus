@@ -107,7 +107,7 @@ const EventDiscussion: React.FC = () => {
         <div className="flex items-center space-x-3">
           <MessageCircle className="w-8 h-8 text-blue-400" />
           <div>
-            <h1 className="text-3xl font-bold text-white">Event Discussions</h1>
+            <h1 className="text-3xl font-bold text-white">Discussions</h1>
             <p className="text-gray-400">Collaborate, plan, and discuss campus events</p>
           </div>
         </div>

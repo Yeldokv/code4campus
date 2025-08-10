@@ -12,11 +12,11 @@ const Footer: React.FC = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
-                <span>123 University Avenue, Education City, EC 12345</span>
+                <span>Adi Shankara Institute of Engineering and Technology Kalady</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 999-9999-999</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                 <span>Sunday: Closed</span>
               </div>
               <div className="mt-4 p-3 bg-red-900/30 border border-red-700 rounded-lg">
-                <div className="text-red-400 font-semibold text-sm">Emergency: 911</div>
+                <div className="text-red-400 font-semibold text-sm">Emergency: 100</div>
                 <div className="text-gray-300 text-sm">Campus Security: ext. 2911</div>
               </div>
             </div>
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Campus Navigation System. All rights reserved.
+              © 2025 Campus Connect. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>

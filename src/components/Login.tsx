@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, User, Lock, LogIn } from 'lucide-react';
+import aboutImg from '../assets/about.webp'; // <-- Import image
 
 interface LoginProps {
   onLogin: (studentId: string, password: string) => boolean;
@@ -32,7 +33,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url('https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080')`,
+          backgroundImage: `url(${aboutImg})`, // <-- Use imported image
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -45,7 +46,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             <div className="flex justify-center mb-4">
               <MapPin className="w-12 h-12 text-blue-400" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">Campus Navigation</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">Campus Connect</h1>
             <p className="text-gray-400">Sign in to access campus services</p>
           </div>
 
@@ -109,12 +110,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             </button>
           </form>
 
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-blue-900/30 rounded-lg border border-blue-700/50">
-            <p className="text-xs text-blue-200 text-center">
-              Demo: Use any Student ID and Password to login
-            </p>
-          </div>
+          
         </div>
       </div>
     </div>

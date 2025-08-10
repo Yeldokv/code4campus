@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Menu, X, MapPin, LogOut } from 'lucide-react';
 import { TabType } from '../App';
 
@@ -36,12 +36,17 @@ const Navbar: React.FC<NavbarProps> = ({ user, activeTab, onTabChange, onLogout 
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
             <MapPin className="w-8 h-8 text-blue-400" />
-            <h1 className="text-xl font-bold text-white">Campus Navigation System</h1>
+            <h1 className="text-xl font-bold text-white">Campus Connect</h1>
           </div>
-
-          {/* User Info and Logout */}
+          {/* User Info, Name Button, and Logout */}
           <div className="hidden md:flex items-center space-x-4">
             <span className="text-gray-300">Welcome, {user?.studentId}</span>
+            <button
+              className="px-4 py-2 rounded-lg font-bold text-sm bg-blue-400 hover:bg-blue-500 text-white transition-colors"
+              onClick={() => onTabChange('profile')}
+            >
+              👤
+            </button>
             <button
               onClick={onLogout}
               className="flex items-center space-x-2 px-3 py-2 rounded-md bg-red-600 hover:bg-red-700 transition-colors"
@@ -50,7 +55,6 @@ const Navbar: React.FC<NavbarProps> = ({ user, activeTab, onTabChange, onLogout 
               <span>Logout</span>
             </button>
           </div>
-
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -61,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, activeTab, onTabChange, onLogout 
         </div>
 
         {/* Navigation Tabs - Desktop */}
-        <div className="hidden md:flex space-x-1 pb-4 overflow-x-auto">
+        <div className="hidden md:flex space-x-1 pb-4 overflow-x-auto no-scrollbar">
           {tabs.map((tab) => (
             <button
               key={tab.id}

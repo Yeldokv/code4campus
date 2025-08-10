@@ -16,15 +16,18 @@ import TransportTracker from './components/TransportTracker';
 import AchievementBoard from './components/AchievementBoard';
 import SocietiesDirectory from './components/SocietiesDirectory';
 import Footer from './components/Footer';
+import { Sun, Moon } from 'lucide-react';
+import Profile from './components/Profile';
 
 export type TabType = 'dashboard' | 'map' | 'events' | 'announcements' | 'lostfound' | 'library' | 
   'canteen' | 'concerns' | 'eventdiscussion' | 'complaints' | 'calendar' | 'transport' | 
-  'achievements' | 'societies';
+  'achievements' | 'societies' | 'profile';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
   const [user, setUser] = useState<{studentId: string} | null>(null);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   const handleLogin = (studentId: string, password: string) => {
     // Simple validation - in real app, this would be API call
@@ -42,9 +45,13 @@ function App() {
     setActiveTab('dashboard');
   };
 
+  const handleThemeToggle = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   const renderActiveComponent = () => {
     switch (activeTab) {
-      case 'dashboard': return <Dashboard onTabChange={setActiveTab} />;
+      case 'dashboard': return <Dashboard onTabChange={setActiveTab} theme={theme} />;
       case 'map': return <CampusMap />;
       case 'events': return <EventNavigation />;
       case 'announcements': return <Announcements />;
@@ -58,7 +65,8 @@ function App() {
       case 'transport': return <TransportTracker />;
       case 'achievements': return <AchievementBoard />;
       case 'societies': return <SocietiesDirectory />;
-      default: return <Dashboard onTabChange={setActiveTab} />;
+      case 'profile': return <Profile />;
+      default: return <Dashboard onTabChange={setActiveTab} theme={theme} />;
     }
   };
 
@@ -67,15 +75,49 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div
+      className="min-h-screen transition-colors duration-500"
+      style={{
+        background: theme === 'dark'
+          ? 'linear-gradient(135deg, #181c3a 0%, #2b3260 100%)'
+          : 'linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%)',
+        color: theme === 'dark' ? '#cbd5e1' : '#222'
+      }}
+    >
       <Navbar 
         user={user} 
         activeTab={activeTab} 
         onTabChange={setActiveTab} 
         onLogout={handleLogout} 
       />
-      <main className="container mx-auto px-4 py-6 max-w-7xl">
-        {renderActiveComponent()}
+      {/* Theme toggle button - bottom right, above footer */}
+      <div className="fixed bottom-8 right-20 z-0">
+        <button
+          onClick={handleThemeToggle}
+          className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg border border-gray-700 transition-all duration-300"
+          style={{
+            background: theme === 'dark'
+              ? 'linear-gradient(135deg, #2b3260 0%, #181c3a 100%)'
+              : 'linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%)',
+            color: theme === 'dark' ? '#fbbf24' : '#334155'
+          }}
+        >
+          <span className="transition-transform duration-300" style={{
+            transform: theme === 'dark' ? 'rotate(0deg)' : 'rotate(180deg)'
+          }}>
+            {theme === 'dark'
+              ? <Sun className="w-7 h-7 animate-spin-slow" />
+              : <Moon className="w-7 h-7 animate-spin-slow" />
+            }
+          </span>
+        </button>
+      </div>
+      <main className="container mx-auto px-4 py-6 max-w-7xl" style={{
+        color: theme === 'dark' ? '#cbd5e1' : '#222'
+      }}>
+        {activeTab === 'dashboard'
+          ? <Dashboard onTabChange={setActiveTab} theme={theme} />
+          : renderActiveComponent()}
       </main>
       <Footer />
     </div>

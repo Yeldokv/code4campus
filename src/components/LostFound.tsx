@@ -22,19 +22,19 @@ const items: LostFoundItem[] = [
     category: 'electronics',
     type: 'lost',
     location: 'Central Library',
-    date: '2024-02-27',
+    date: '2025-02-27',
     contactName: 'Sarah Johnson',
     contactPhone: '+1-555-0123',
     imageUrl: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=300'
   },
   {
     id: '2',
-    title: 'Red Backpack',
-    description: 'Found a red JanSport backpack in the cafeteria. Contains some textbooks and notebooks.',
+    title: 'Blue Backpack',
+    description: 'Found a blue JanSport backpack in the cafeteria. Contains some textbooks and notebooks.',
     category: 'other',
     type: 'found',
     location: 'Student Canteen',
-    date: '2024-02-26',
+    date: '2025-02-26',
     contactName: 'Mike Chen',
     contactPhone: '+1-555-0124',
     imageUrl: 'https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=300'
@@ -45,8 +45,8 @@ const items: LostFoundItem[] = [
     description: 'Lost my silver Casio watch somewhere between the gym and the parking lot.',
     category: 'accessories',
     type: 'lost',
-    location: 'Sports Complex',
-    date: '2024-02-25',
+    location: 'campus gym',
+    date: '2025-02-25',
     contactName: 'David Wilson',
     contactPhone: '+1-555-0125'
   },
@@ -56,8 +56,8 @@ const items: LostFoundItem[] = [
     description: 'Found "Advanced Calculus" textbook by James Stewart in classroom B-201.',
     category: 'books',
     type: 'found',
-    location: 'Science & Technology Block',
-    date: '2024-02-24',
+    location: 'Main Block',
+    date: '2025-02-24',
     contactName: 'Prof. Anderson',
     contactPhone: '+1-555-0126'
   },
@@ -68,7 +68,7 @@ const items: LostFoundItem[] = [
     category: 'clothing',
     type: 'lost',
     location: 'Main Auditorium',
-    date: '2024-02-23',
+    date: '2025-02-23',
     contactName: 'Emma Davis',
     contactPhone: '+1-555-0127'
   }

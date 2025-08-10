@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MapPin, Info, X } from 'lucide-react';
-
 interface Building {
   id: string;
   name: string;
@@ -12,37 +11,37 @@ interface Building {
 const buildings: Building[] = [
   {
     id: 'main-building',
-    name: 'Main Administrative Building',
+    name: 'Main Building',
     description: 'Central administrative offices and student services',
-    facilities: ['Admissions Office', 'Student Records', 'Financial Aid'],
+    facilities: ['Admissions Office', 'CS department', 'Library'],
     position: { x: 40, y: 30 }
   },
   {
-    id: 'library',
-    name: 'Central Library',
-    description: 'Multi-story library with extensive digital and print resources',
-    facilities: ['Reading Halls', 'Digital Lab', 'Study Rooms', 'Archives'],
+    id: 'civil',
+    name: 'Civil Block',
+    description: 'Civil department and associated labs',
+    facilities: ['Department Room', 'Civil Lab', 'Class Rooms'],
     position: { x: 25, y: 45 }
   },
   {
-    id: 'science-block',
-    name: 'Science & Technology Block',
-    description: 'Modern laboratories and lecture halls for science programs',
-    facilities: ['Physics Lab', 'Chemistry Lab', 'Computer Labs', 'Research Centers'],
+    id: 'mech',
+    name: 'Mech Block',
+    description: 'Mechanical Department and associated labs',
+    facilities: ['Mechanical Department', 'Machines Lab', 'CAD Labs'],
     position: { x: 65, y: 25 }
   },
   {
     id: 'canteen',
     name: 'Student Canteen',
     description: 'Main dining facility with various food options',
-    facilities: ['Food Court', 'Coffee Shop', 'Outdoor Seating'],
+    facilities: ['Food Court', 'Staff Seating', 'Indoor Seating'],
     position: { x: 50, y: 60 }
   },
   {
-    id: 'sports-complex',
-    name: 'Sports Complex',
-    description: 'Indoor and outdoor sports facilities',
-    facilities: ['Gymnasium', 'Swimming Pool', 'Tennis Courts', 'Football Field'],
+    id: 'ccf',
+    name: 'Lab Complex',
+    description: 'Three floor building with computer labs',
+    facilities: ['Computer Lab', 'Maintanance Room'],
     position: { x: 20, y: 70 }
   },
   {
@@ -73,7 +72,7 @@ const CampusMap: React.FC = () => {
           <div 
             className="w-full h-96 bg-cover bg-center relative"
             style={{
-              backgroundImage: `url('https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080')`,
+              backgroundImage: campusMapImg,
             }}
           >
             <div className="absolute inset-0 bg-black/40"></div>

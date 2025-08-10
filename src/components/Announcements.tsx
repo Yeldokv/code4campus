@@ -16,30 +16,30 @@ const announcements: Announcement[] = [
   {
     id: '1',
     title: 'Semester End Examinations Schedule Released',
-    content: 'The examination schedule for the current semester has been published. Students are advised to check their exam dates and venues on the student portal. Regular classes will end on March 10th, and examinations will begin from March 15th.',
+    content: 'The examination schedule for the current semester has been published. Students are advised to check their exam dates and venues on the student portal. Regular classes will end on August 20th, and examinations will begin from August 10th.',
     category: 'academic',
     priority: 'high',
-    date: '2024-02-28',
+    date: '2025-08-10',
     author: 'Academic Office',
     isPinned: true
   },
   {
     id: '2',
     title: 'Annual Tech Fest Registration Open',
-    content: 'Registration for the Annual Tech Fest 2024 is now open! Join us for three days of innovation, competitions, and networking. Early bird registration ends March 5th with special discounts.',
+    content: 'Registration for the Annual Tech Fest 2025 is now open! Join us for three days of innovation, competitions, and networking. Early bird registration ends September 5th with special discounts.',
     category: 'events',
     priority: 'medium',
-    date: '2024-02-27',
+    date: '2025-08-02',
     author: 'Student Activities',
     isPinned: true
   },
   {
     id: '3',
     title: 'Library Extended Hours During Exam Period',
-    content: 'The central library will extend its operating hours from 7 AM to 11 PM during the examination period (March 10-30). Additional study spaces and resources will be available.',
+    content: 'The central library will extend its operating hours from 7 AM to 11 PM during the examination period. Additional study spaces and resources will be available.',
     category: 'academic',
     priority: 'medium',
-    date: '2024-02-26',
+    date: '2025-03-02',
     author: 'Library Administration',
     isPinned: false
   },
@@ -49,17 +49,17 @@ const announcements: Announcement[] = [
     content: 'Network maintenance is scheduled for March 3rd from 2 AM to 6 AM. There may be intermittent connectivity issues during this period. We apologize for any inconvenience.',
     category: 'administrative',
     priority: 'low',
-    date: '2024-02-25',
+    date: '2025-02-25',
     author: 'IT Services',
     isPinned: false
   },
   {
     id: '5',
-    title: 'Fire Safety Drill - March 8th',
-    content: 'A campus-wide fire safety drill will be conducted on March 8th at 11 AM. All students and staff must participate. Assembly points are marked near each building.',
+    title: 'Fire Safety Drill - January 15th',
+    content: 'A campus-wide fire safety drill will be conducted on January 15th. All students and staff must participate. Assembly points are marked near each building.',
     category: 'emergency',
     priority: 'high',
-    date: '2024-02-24',
+    date: '2025-01-02',
     author: 'Safety Department',
     isPinned: false
   }

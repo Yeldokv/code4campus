@@ -21,38 +21,38 @@ const busRoutes: BusRoute[] = [
   {
     id: '1',
     routeNumber: 'R1',
-    routeName: 'Main Campus - Downtown',
-    stops: ['Main Gate', 'Library', 'Science Block', 'Dormitory', 'Downtown Terminal'],
+    routeName: 'Campus - Aluva',
+    stops: ['Main Gate', 'Kalady', 'Angamaly', 'Aluva'],
     schedule: [
       { departure: '8:00 AM', estimatedArrival: '8:25 AM', actualArrival: '8:23 AM' },
       { departure: '9:00 AM', estimatedArrival: '9:25 AM', actualArrival: '9:30 AM', delay: 5 },
       { departure: '10:00 AM', estimatedArrival: '10:25 AM' },
       { departure: '11:00 AM', estimatedArrival: '11:25 AM' }
     ],
-    currentLocation: 'Near Library',
+    currentLocation: 'Near Canteen',
     isActive: true,
     nextDeparture: '10:00 AM'
   },
   {
     id: '2',
     routeNumber: 'R2',
-    routeName: 'Campus - Metro Station',
-    stops: ['Main Gate', 'Sports Complex', 'Cafeteria', 'Metro Station'],
+    routeName: 'Campus - Angamaly',
+    stops: ['Main Gate', 'kalady', 'Manjapra', 'Angamaly'],
     schedule: [
       { departure: '7:30 AM', estimatedArrival: '7:50 AM', actualArrival: '7:48 AM' },
       { departure: '8:30 AM', estimatedArrival: '8:50 AM', actualArrival: '8:55 AM', delay: 5 },
       { departure: '9:30 AM', estimatedArrival: '9:50 AM' },
       { departure: '10:30 AM', estimatedArrival: '10:50 AM' }
     ],
-    currentLocation: 'Sports Complex',
+    currentLocation: 'Main pathway',
     isActive: true,
     nextDeparture: '9:30 AM'
   },
   {
     id: '3',
     routeNumber: 'R3',
-    routeName: 'Dormitory Shuttle',
-    stops: ['North Dormitory', 'South Dormitory', 'Main Campus', 'Library'],
+    routeName: 'Campus - perumbavoor',
+    stops: ['main Gate', 'Mattoor', 'perumbavoor'],
     schedule: [
       { departure: '8:15 AM', estimatedArrival: '8:30 AM', actualArrival: '8:32 AM', delay: 2 },
       { departure: '9:15 AM', estimatedArrival: '9:30 AM', delay: 10 },

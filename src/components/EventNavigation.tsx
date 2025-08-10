@@ -15,19 +15,19 @@ interface Event {
 const events: Event[] = [
   {
     id: '1',
-    title: 'Annual Tech Fest 2024',
-    venue: 'Main Auditorium',
-    date: '2024-03-15',
+    title: 'Code 4 Campus',
+    venue: 'Online',
+    date: '2024-08-10',
     time: '10:00 AM',
     capacity: 500,
     registered: 387,
-    description: 'Join us for the biggest tech event of the year with exhibitions, competitions, and guest speakers.'
+    description: 'Join the one week web development competition by mulearn.'
   },
   {
     id: '2',
     title: 'Cultural Night',
-    venue: 'Sports Complex',
-    date: '2024-03-20',
+    venue: 'Main block',
+    date: '2025-08-20',
     time: '6:00 PM',
     capacity: 800,
     registered: 654,
@@ -35,9 +35,9 @@ const events: Event[] = [
   },
   {
     id: '3',
-    title: 'Career Fair 2024',
-    venue: 'Science & Technology Block',
-    date: '2024-03-25',
+    title: 'Career Fair 2025',
+    venue: 'Mech Block',
+    date: '2025-08-25',
     time: '9:00 AM',
     capacity: 300,
     registered: 248,
@@ -94,13 +94,16 @@ const EventNavigation: React.FC = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-2">
-                <button 
-                  onClick={() => handleGetDirections(event)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center space-x-2"
-                >
-                  <Navigation className="w-4 h-4" />
-                  <span>Get Directions</span>
-                </button>
+                {/* Only show Get Directions button if event.id !== '1' */}
+                {event.venue !== 'Online' && (
+                  <button 
+                    onClick={() => handleGetDirections(event)}
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center space-x-2"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    <span>Get Directions</span>
+                  </button>
+                )}
                 <button className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
                   Register
                 </button>
@@ -180,8 +183,8 @@ const EventNavigation: React.FC = () => {
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
                   <div>
-                    <div className="text-white">Turn right at Central Plaza</div>
-                    <div className="text-gray-400 text-sm">Near the fountain</div>
+                    <div className="text-white">Turn left to enter the lobby</div>
+                    <div className="text-gray-400 text-sm">At the four pillar enterance</div>
                   </div>
                 </div>
                 <div className="ml-4 h-6 w-0.5 bg-gray-600"></div>
@@ -189,7 +192,7 @@ const EventNavigation: React.FC = () => {
                   <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white text-sm font-bold">4</div>
                   <div>
                     <div className="text-white">Arrive at {selectedEvent.venue}</div>
-                    <div className="text-gray-400 text-sm">Total walking time: ~5 minutes</div>
+                    <div className="text-gray-400 text-sm">Total walking time: ~2 minutes</div>
                   </div>
                 </div>
               </div>

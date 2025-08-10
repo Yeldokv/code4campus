@@ -17,12 +17,12 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     id: '1',
-    name: 'Chicken Biryani',
-    description: 'Aromatic basmati rice cooked with tender chicken and traditional spices',
+    name: 'Veg Biryani',
+    description: 'Aromatic basmati rice cooked with nutritious vegitable and traditional spices',
     category: 'lunch',
-    price: 12.99,
+    price: 120,
     isAvailable: true,
-    isVegetarian: false,
+    isVegetarian: true,
     isSpecial: true,
     rating: 4.8,
     prepTime: 25
@@ -32,7 +32,7 @@ const menuItems: MenuItem[] = [
     name: 'Vegetable Sandwich',
     description: 'Fresh vegetables with cheese and mayo on whole wheat bread',
     category: 'breakfast',
-    price: 5.99,
+    price: 20,
     isAvailable: true,
     isVegetarian: true,
     isSpecial: false,
@@ -41,12 +41,12 @@ const menuItems: MenuItem[] = [
   },
   {
     id: '3',
-    name: 'Pasta Carbonara',
-    description: 'Creamy pasta with bacon, eggs, and parmesan cheese',
+    name: 'Pasta',
+    description: 'Creamy pasta with parmesan cheese',
     category: 'lunch',
-    price: 9.99,
+    price: 70,
     isAvailable: false,
-    isVegetarian: false,
+    isVegetarian: true,
     isSpecial: false,
     rating: 4.5,
     prepTime: 20
@@ -56,7 +56,7 @@ const menuItems: MenuItem[] = [
     name: 'Fresh Fruit Juice',
     description: 'Seasonal fresh fruit juice - Orange, Apple, or Mixed',
     category: 'beverages',
-    price: 3.49,
+    price: 15,
     isAvailable: true,
     isVegetarian: true,
     isSpecial: false,
@@ -68,7 +68,7 @@ const menuItems: MenuItem[] = [
     name: 'Chocolate Brownie',
     description: 'Rich, fudgy chocolate brownie served with vanilla ice cream',
     category: 'snacks',
-    price: 4.99,
+    price: 17,
     isAvailable: true,
     isVegetarian: true,
     isSpecial: true,
@@ -77,8 +77,8 @@ const menuItems: MenuItem[] = [
   },
   {
     id: '6',
-    name: 'Grilled Fish Fillet',
-    description: 'Fresh fish fillet grilled with herbs and lemon butter sauce',
+    name: 'Paneer Butter Masala',
+    description: 'Fresh creamy paneer cubes simmered in a spiced tomato and butter gravy.',
     category: 'dinner',
     price: 15.99,
     isAvailable: true,
@@ -223,8 +223,10 @@ const CanteenMenu: React.FC = () => {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center space-x-1">
-                    <DollarSign className="w-4 h-4 text-green-400" />
-                    <span className="text-white font-bold">{item.price.toFixed(2)}</span>
+                    <DollarSign className="w-0 h-0 text-green-400" />
+                    <span className="font-bold text-lg text-white">
+                      ₹{item.price}
+                    </span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Star className="w-4 h-4 text-yellow-400 fill-current" />

@@ -6,13 +6,16 @@ import {
   CheckCircle,
   XCircle,
   DollarSign,
-  Leaf,
 } from "lucide-react";
 import { fetchMenuItems, MenuItem } from "../services/canteenService";
+import { placeOrder } from "../services/orderService";
+import { useNavigate } from "react-router-dom";
 
 const Canteen: React.FC = () => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [ordering, setOrdering] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadMenu() {
@@ -23,74 +26,70 @@ const Canteen: React.FC = () => {
     loadMenu();
   }, []);
 
-  if (loading)
-    return <p className="text-gray-600 italic">Loading canteen menu...</p>;
+  const handleOrder = async (itemName: string) => {
+    setOrdering(itemName);
+    const result = await placeOrder("student123", itemName); // temporary hardcoded student ID
+    alert(`✅ Order placed!\nItem: ${result.itemName}\nToken: ${result.tokenNumber}`);
+    setOrdering(null);
+  };
+
+  if (loading) return <p className="text-gray-600">Loading canteen menu...</p>;
 
   if (menuItems.length === 0)
-    return <p className="text-gray-600 italic">No items found in menu.</p>;
+    return <p className="text-gray-600">No items found in menu.</p>;
 
   return (
-    <div className="px-4 md:px-8 lg:px-12">
-      <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-indigo-700">
-        <UtensilsCrossed className="w-6 h-6" /> Canteen Menu
-      </h2>
+    <div>
+      {/* Title + History Button */}
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <UtensilsCrossed /> Canteen Menu
+        </h2>
+        <button
+          onClick={() => navigate("/history")}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
+        >
+          Order History
+        </button>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Menu Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {menuItems.map((item) => (
-          <div
-            key={item.id}
-            className="bg-indigo border rounded-2xl shadow-lg p-5 hover:shadow-xl transition-all"
-          >
-            {/* Title and Special Badge */}
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-lg font-semibold">{item.name}</h3>
-              {item.isSpecial && (
-                <span className="flex items-center gap-1 text-sm text-yellow-600 font-medium">
-                  <Star className="w-4 h-4 fill-yellow-500" /> Special
-                </span>
-              )}
-            </div>
-
-            {/* Description */}
-            <p className="text-sm text-gray-600 mb-3">{item.description}</p>
-
-            {/* Category + Vegetarian */}
-            <div className="flex items-center justify-between text-sm mb-2">
-              <span className="px-2 py-0.5 rounded-full text-white bg-indigo-500 capitalize">
-                {item.category}
-              </span>
-              {item.isVegetarian && (
-                <span className="flex items-center gap-1 text-green-600 text-xs font-medium">
-                  <Leaf className="w-4 h-4" /> Veg
-                </span>
-              )}
-            </div>
-
-            {/* Price and Time */}
-            <div className="flex items-center justify-between mb-2">
-              <span className="flex items-center gap-1 text-gray-800 font-medium">
-                <DollarSign className="w-4 h-4" /> ₹{item.price}
-              </span>
-              <span className="flex items-center gap-1 text-gray-500 text-sm">
-                <Clock className="w-4 h-4" /> {item.prepTime} mins
-              </span>
-            </div>
-
-            {/* Availability */}
-            <div className="flex items-center gap-1 mt-2">
+          <div key={item.id} className="border rounded-lg p-4 shadow-md">
+            <h3 className="text-lg font-semibold flex items-center justify-between">
+              {item.name}
+              {item.isSpecial && <Star className="text-yellow-500 w-5 h-5" />}
+            </h3>
+            <p className="text-sm text-gray-600">{item.description}</p>
+            <p className="text-sm text-gray-500 capitalize">
+              Category: {item.category}
+            </p>
+            <p className="flex items-center gap-1">
+              <DollarSign className="w-4 h-4" /> {item.price}
+            </p>
+            <p className="flex items-center gap-1">
+              <Clock className="w-4 h-4" /> {item.prepTime} mins
+            </p>
+            <p className="flex items-center gap-1 mb-2">
               {item.isAvailable ? (
-                <CheckCircle className="text-green-500 w-5 h-5" />
+                <CheckCircle className="text-green-500 w-4 h-4" />
               ) : (
-                <XCircle className="text-red-500 w-5 h-5" />
+                <XCircle className="text-red-500 w-4 h-4" />
               )}
-              <span
-                className={`text-sm font-medium ${
-                  item.isAvailable ? "text-green-600" : "text-red-600"
-                }`}
+              {item.isAvailable ? "Available" : "Not Available"}
+            </p>
+
+            {/* Order button */}
+            {item.isAvailable && (
+              <button
+                onClick={() => handleOrder(item.name)}
+                disabled={ordering === item.name}
+                className="w-full bg-green-600 text-white py-2 rounded-lg shadow hover:bg-green-700 disabled:opacity-50"
               >
-                {item.isAvailable ? "Available" : "Not Available"}
-              </span>
-            </div>
+                {ordering === item.name ? "Ordering..." : "Order"}
+              </button>
+            )}
           </div>
         ))}
       </div>
